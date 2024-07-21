@@ -6,42 +6,230 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
-  <title>Product preview card</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Intro section with dropdown navigation</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution {
-      font-size: 11px; text-align: center;
-    }
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 16px;
+    color: #333;
+    background: #f9f9f9;
+}
+header {
+    background: #fff;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
 
-    .card {
-      display: flex;
-      align-items: center;
-      width: 500px;
-      border-radius: 10px;
-      background-color: white;
-      height: 375px;
-    }
-    .card-content {
-        width: 300px;
-        margin: 0;
-      }
-  </style>
+.logo img {
+    height: 24px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin-left: 40px;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.nav-item a:hover {
+    color: #007bff;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 10px 0;
+    border-radius: 5px;
+}
+
+.dropdown-menu li {
+    padding: 10px 20px;
+}
+
+.dropdown-menu li a {
+    padding: 0;
+}
+
+.auth-links {
+    margin-left: auto;
+}
+
+.auth-links a {
+    text-decoration: none;
+    color: #333;
+    margin-left: 20px;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+.auth-links a:hover {
+    background: #007bff;
+    color: #fff;
+}
+
+.intro {
+    padding: 100px 40px;
+    text-align: center;
+    background-size: cover;
+    color: #fff;
+    flex: 1;
+    margin-right: 20px;
+}
+
+.intro h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.intro p {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.cta {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    background: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+}
+
+.cta:hover {
+    background: black;
+    color : white;
+}
+.clients {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+    gap: 40px;
+}
+
+.clients img {
+    height: 24px;
+}
+
+.content {
+    display : flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero-image {
+    flex: 1;
+}
+.hero-image img{
+    max-width: 100%;
+    height: auto;
+}
+
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    dropdowns.forEach(dropdown => {
+        dropdown.addEventListener('mouseenter', () => {
+            dropdown.querySelector('.dropdown-menu').style.display = 'block';
+        });
+
+        dropdown.addEventListener('mouseleave', () => {
+            dropdown.querySelector('.dropdown-menu').style.display = 'none';
+        });
+    });
+});
+
+</script>
 </head>
 <body>
- <div class="card">
-  <img src="images/image-prodect-desktop.jpg" alt="Product Image" class="product-image">
-  <div class="card-content">
-    <h1>Gabrielle Essence Eau De Parfum</h1>
-    <p>A floral, solar and voluptuous interpretation composed by Olivier Polge, Perfumer-Creator for the House of CHANEL.</p>
-    <p><span>$149.99</span> <span>$169.99</span></p>
-    <button>Add to Cart</button>
-  </div>
- </div>
+  <header>
+    <nav>
+        <div class="logo">
+            <img src="images/logo.svg" alt="Logo">
+        </div>
+        <ul class="nav-links">
+            <li class="nav-item dropdown">
+                <a href="#">Features</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Todo List</a></li>
+                    <li><a href="#">Calendar</a></li>
+                    <li><a href="#">Reminders</a></li>
+                    <li><a href="#">Planning</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#">Company</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">History</a></li>
+                    <li><a href="#">Our Team</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a href="#">Careers</a></li>
+            <li class="nav-item"><a href="#">About</a></li>
+        </ul>
+        <div class="auth-links">
+            <a href="#" class="login">Login</a>
+            <a href="#" class="register">Register</a>
+        </div>
+    </nav>
+</header>
+<main class="content">
+    <section class="intro">
+        <h1 style="color:black"> Make remote work</h1>
+        <p style="color:gray">Get your team in sync, no matter your location. Streamline processes, create team rituals, and watch productivity soar.</p>
+        <a href="#" class="cta">Learn more</a>
+
+        <section class="clients">
+            <img src="images/client-databiz.svg" alt="Databiz">
+            <img src="images/client-audiophile.svg" alt="Audiophile">
+            <img src="images/client-meet.svg" alt="Meet">
+            <img src="images/client-maker.svg" alt="Maker">
+        </section>
+    </section>
+    <section class="hero-image">
+        <img src="images/image-hero-desktop.png" alt="hero" width="500px" height="700px">
+    </section>
+    
+</main>
+<script src="scripts.js"></script>  
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">eunkyoung529</a>.
+    Coded by <a href="#">eunkyoung</a>.
   </div>
 </body>
 </html>
